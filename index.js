@@ -3,7 +3,7 @@
 // declare libraries and other js files to be used for application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generator = require('./generator');
+const generator = require('./config/generator');
 
 const renderMarkup = ( { fileName, title, description, install, usage, contribution, test, license, github, email } ) =>
     
@@ -48,7 +48,7 @@ const renderMarkup = ( { fileName, title, description, install, usage, contribut
       type: 'list',
       message: 'Please choose a license for this application',
       name: 'license',
-      choices: [ // placeholders!
+      choices: [ // placeholders! ref: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba for updated list;
         'Academic Free License v3.0', 
         'Apache license 2.0', 
         'Artistic license 2.0', 
