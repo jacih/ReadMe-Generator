@@ -3,11 +3,9 @@
 // declare libraries and other js files to be used for application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generator = require('./config/generator');
+const generate = require('./config/generator');
 
-const renderMarkup = ( { fileName, title, description, install, usage, contribution, test, license, github, email } ) =>
-    
-  generator();// do I need to do this? how does generator js speak with index js??
+function userInput() {
   inquirer.prompt([
     {
       type: 'input',
@@ -17,7 +15,7 @@ const renderMarkup = ( { fileName, title, description, install, usage, contribut
     {
       type: 'input',
       message: 'What is this application\'s title?',
-      name: 'fileName',
+      name: 'title',
     },
     {
       type: 'input',
@@ -48,36 +46,37 @@ const renderMarkup = ( { fileName, title, description, install, usage, contribut
       type: 'list',
       message: 'Please choose a license for this application',
       name: 'license',
-      choices: [ // placeholders! ref: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba for updated list;
-        'Academic Free License v3.0', 
-        'Apache license 2.0', 
-        'Artistic license 2.0', 
-        'Boost Software License 1.0', 
-        'BSD 2-clause license', 
-        'BSD 3-clause license', 
-        'Creative Commons Zero v1.0 Universal', 
-        'Creative Commons Attribution 4.0', 
-        'Creative Commons Attribution Share Alike 4.0', 
-        'Do What The Fuck You Want To Public License', 
-        'Educational Community License v2.0', 
-        'Eclipse Public License 1.0', 
-        'Eclipse Public License 2.0', 
-        'European Union Public License 1.1', 
-        'GNU Affero General Public License v3.0', 
+      choices: [
+        'Apache 2.0 License', 
+        'Boost Software License 1.0',
+        'BSD 3-Clause License', 
+        'BSD 2-2lause License', 
+        'Creative Commons Zero 1.0 Universal', 
+        'Creative Commons Attribution 4.0 International', 
+        'Creative Commons Attribution-ShareAlike 4.0 International', 
+        'Creative Commons Attribution-NonCommercial 4.0 International',
+        'Creative Commons Attribution-NoDerivates 4.0 International',
+        'Creative Commons Attribution-NonCommmercial-ShareAlike 4.0 International',
+        'Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International',
+        'Eclipse Public License 1.0',
+        'GNU General Public License v3.0', 
         'GNU General Public License v2.0', 
-        'GNU General Public License v3.0',  
-        'GNU Lesser General Public License v2.1', 
-        'GNU Lesser General Public License v3.0', 
-        'ISC', 
-        'LaTeX Project Public License v1.3c', 
-        'Microsoft Public License',
+        'GNU Affero General Public License v3.0',  
+        'GNU Lesser General Public License v3.0',
+        'GNU Free Documentation License v1.3',
+        'The Hippocratic License 3.0',
+        'The Hippocratic License 2.1',
+        'IBM Public License Version 1.0',
+        'ISC License', 
         'MIT', 
-        'Mozilla Public License 2.0', 
-        'Open Software License 3.0', 
-        'SIL Open Font License 1.1', 
-        'University of Illinois/NCSA Open Source License', 
-        'The Unlicense', 
-        'zLib License'],
+        'Mozilla Public License 2.0',
+        'Open Data Commons Attribution License',
+        'Open Data Commons Open Database License', 
+        'Open Data Commons Public Domain Dedication and License',
+        'The Artistic License 2.0',
+        'SIL Open Font License 1.1',
+        'The Unlicense',
+        'ZLib The zilb/libpng License'],
     },
     {
       type: 'input',
@@ -91,8 +90,13 @@ const renderMarkup = ( { fileName, title, description, install, usage, contribut
     }
 
   ]).then((data) => {
-    const markupContent = renderMarkup(data);
+    const markupContent = generate(data);
 
     fs.writeFile(`${fileName}`, markupContent, (err) =>
       err ? console.log(err) : console.log(`${fileName}.md was successfully generated.`));
     });
+}
+
+async function init() {
+  
+  }
