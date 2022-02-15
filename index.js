@@ -3,7 +3,7 @@
 // declare libraries and other js files to be used for application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const mdContent = require('./utils/generator');
+const mdContent = require('./utils/markdownContent');
 
 function getInput() {
   return inquirer.prompt([
