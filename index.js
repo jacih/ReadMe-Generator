@@ -3,14 +3,14 @@
 // declare libraries and other js files to be used for application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generate = require('./config/generator');
+const mdContent = require('./utils/generator');
 
-function userInput() {
-  inquirer.prompt([
+function getInput() {
+  return inquirer.prompt([
     {
       type: 'input',
       message: 'What should this ReadMe file\'s name to be?',
-      name: 'fileName',
+      name: 'fileName', 
     },
     {
       type: 'input',
@@ -88,15 +88,20 @@ function userInput() {
       message: 'What is your email address?',
       name: 'email',
     }
-
-  ]).then((data) => {
-    const markupContent = generate(data);
-
-    fs.writeFile(`${fileName}`, markupContent, (err) =>
-      err ? console.log(err) : console.log(`${fileName}.md was successfully generated.`));
-    });
+  ]);
 }
 
+// function to create a readme file
+function writeToFile (fileName, data) {
+  fs.appendFile(`${fileName}.md`, data, (err) =>
+    err ? console.log(err) : console.log(`${fileName}.md was successfully generated.`));
+}
+
+//function to tell app to wait for user input prior to md generation
 async function init() {
-  
-  }
+  let data = await getInput();
+  writeToFile((data.fileName),(mdContent(data)));
+}
+
+//function call to initialize app
+init();

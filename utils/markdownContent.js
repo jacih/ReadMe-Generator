@@ -1,36 +1,38 @@
+// list of licenses for user to choose from;
 const licenses = [
-    'Apache 2.0 License', 
+    'Apache 2.0 License',
     'Boost Software License 1.0',
-    'BSD 3-Clause License', 
-    'BSD 2-2lause License', 
-    'Creative Commons Zero 1.0 Universal', 
-    'Creative Commons Attribution 4.0 International', 
-    'Creative Commons Attribution-ShareAlike 4.0 International', 
+    'BSD 3-Clause License',
+    'BSD 2-2lause License',
+    'Creative Commons Zero 1.0 Universal',
+    'Creative Commons Attribution 4.0 International',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
     'Creative Commons Attribution-NonCommercial 4.0 International',
     'Creative Commons Attribution-NoDerivates 4.0 International',
     'Creative Commons Attribution-NonCommmercial-ShareAlike 4.0 International',
     'Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International',
     'Eclipse Public License 1.0',
-    'GNU General Public License v3.0', 
-    'GNU General Public License v2.0', 
-    'GNU Affero General Public License v3.0',  
+    'GNU General Public License v3.0',
+    'GNU General Public License v2.0',
+    'GNU Affero General Public License v3.0',
     'GNU Lesser General Public License v3.0',
     'GNU Free Documentation License v1.3',
     'The Hippocratic License 3.0',
     'The Hippocratic License 2.1',
     'IBM Public License Version 1.0',
-    'ISC License', 
-    'MIT', 
+    'ISC License',
+    'MIT',
     'Mozilla Public License 2.0',
     'Open Data Commons Attribution License',
-    'Open Data Commons Open Database License', 
+    'Open Data Commons Open Database License',
     'Open Data Commons Public Domain Dedication and License',
     'Perl The Artistic License 2.0',
     'SIL Open Font License 1.1',
     'The Unlicense',
     'ZLib The zilb/libpng License'];
 
-function renderBadge() {
+// function to fetch a license badge based on user choice;
+function renderBadge(license) {
     if (license === licenses[0]) {
         return '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
     } else if (license === licenses[1]) {
@@ -96,7 +98,8 @@ function renderBadge() {
     }
 }
 
-function renderLinks() {
+// function to fetch a license link based on user choice;
+function renderLinks(license) {
     if (license === licenses[0]) {
         return `[${licenses[0]}](https://www.apache.org/licenses/LICENSE-2.0)`;
     } else if (license === licenses[1]) {
@@ -161,3 +164,49 @@ function renderLinks() {
         return '';
     }
 }
+
+function mdContent(data) {
+
+  let markdownContent =
+    `# ${data.title}
+    ## ${renderBadge(data.license)} 
+    
+    ## Table if Contents
+    * [Description](#description)
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [License](#license)
+    * [Contribution Guidelines](#contribution-guidelines)
+    * [Tests](#tests)
+    * [Questions](#questions)
+    
+    ## Description
+    ${data.description}
+
+    ## Installation
+    ${data.install}
+
+    ## Usage
+    ${data.usage}
+
+    ## License
+    ${data.license}
+    ${renderBadge(data.license)}
+    ${renderLinks(data.license)}
+
+    ## Contribution Guidelines
+    ${data.contribution}
+
+    ## Tests
+    ${data.test}
+
+    ## Questions?
+    ### Contact me through GitHub at: [${data.github}](https://github.com/${data.github})
+    #### Contact me through email at: ${data.email}`;
+
+    // when function called in index.js, user input will be added to the content above and returned;
+  return markdownContent;
+}
+
+// allows mdContent to be exported and used in index.js;
+module.exports = mdContent;
