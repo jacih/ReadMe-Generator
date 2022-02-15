@@ -93,7 +93,7 @@ function getInput() {
 
 // function to create a readme file
 function writeToFile (fileName, data) {
-  fs.appendFile(`${fileName}.md`, data, (err) =>
+  fs.writeFile(`${fileName}.md`, data, (err) =>
     err ? console.log(err) : console.log(`${fileName}.md was successfully generated.`));
 }
 
