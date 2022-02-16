@@ -167,8 +167,8 @@ function renderLinks(license) {
 
 function mdContent(data) {
 
-  let markdownContent =
-    `# ${data.title}
+  return `
+    # ${data.title}
     ## ${renderBadge(data.license)} 
     
     ## Table of Contents
@@ -202,10 +202,8 @@ function mdContent(data) {
 
     ## [Questions](#table-of-contents)
     Contact me through GitHub at: [GitHub](https://github.com/${data.github})
-    Contact me through email at: [${data.email}](mailto:${data.email})`;
-
-    // when function called in index.js, user input will be added to the content above and returned;
-  return markdownContent;
+    Contact me through email at: [${data.email}](mailto:${data.email})
+    `;
 }
 
 // allows mdContent to be exported and used in index.js;
