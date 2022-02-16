@@ -16,6 +16,8 @@
 This application is intended to drastically reduce the length of time required to write a professional ReadMe document for a developer. After installing inquirer and running the index.js, the developer will be prompted for their input on a number of topics – project title, description, installation instructions, how the application is intended to be used, how to test the application, the license chosen for the project, how to contribute to the project and how to contact the owner of the project. Once the user has answered all prompts, a ReadMe file will be generated which can be dragged into their intended project’s repo and adjusted as needed by reformatting, or adding additional sections such as mock-ups and videos.
 
 ## [Mock-Up](#table-of-contents)
+![Final_mockup](https://user-images.githubusercontent.com/97176042/154179476-d09c4667-c3a9-485a-8fcf-bb2ed1995b66.png)
+![final-readme_demo](https://user-images.githubusercontent.com/97176042/154179492-a72a408e-2dc5-45d1-b250-2f02719732f5.gif)
 
 ## [Installation](#table-of-contents)
 Upon launch of index.js in terminal, npm init -y and npm install are required to ensure the user has the inquirer library.
