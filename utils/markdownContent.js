@@ -173,6 +173,7 @@ function mdContent(data) {
     
     ## Table of Contents
     - [Description](#description)
+    - [Mock-Up](#mock-up)
     - [Installation](#installation)
     - [Usage](#usage)
     - [License](#license)
@@ -182,6 +183,8 @@ function mdContent(data) {
     
     ## [Description](#table-of-contents)
     ${data.description}
+
+    ##[Mock-Up](#table-of-contents)
 
     ## [Installation](#table-of-contents)
     ${data.install}
@@ -200,7 +203,7 @@ function mdContent(data) {
     ${data.test}
 
     ## [Questions](#table-of-contents)
-    Contact me through GitHub at: [GitHub](https://github.com/${data.github})
+    Contact me through [GitHub](https://github.com/${data.github})
     Contact me through email at: [${data.email}](mailto:${data.email})
     `;
 }

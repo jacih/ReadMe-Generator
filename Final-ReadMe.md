@@ -4,6 +4,7 @@
     
 ## Table of Contents
 - [Description](#description)
+- [Mock-Up](#mock-up)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
@@ -12,7 +13,9 @@
 - [Questions](#questions)
     
 ## [Description](#table-of-contents)
-This application is intended to drastically reduce the length of time required to write a professional ReadMe document for a developer. After installing inquirer and running the index.js, the developer will be prompted for their input on a number of topics – project title, description, installation instructions, how the application is intended to be used, how to test the application, the license chosen for the project, how to contribute to the project and how to contact the owner of the project. Once the user has answered all prompts, a ReadMe file will be generated for them that can be dragged to their intended project’s repo.
+This application is intended to drastically reduce the length of time required to write a professional ReadMe document for a developer. After installing inquirer and running the index.js, the developer will be prompted for their input on a number of topics – project title, description, installation instructions, how the application is intended to be used, how to test the application, the license chosen for the project, how to contribute to the project and how to contact the owner of the project. Once the user has answered all prompts, a ReadMe file will be generated which can be dragged into their intended project’s repo and adjusted as needed by reformatting, or adding additional sections such as mock-ups and videos.
+
+## [Mock-Up](#table-of-contents)
 
 ## [Installation](#table-of-contents)
 Upon launch of index.js in terminal, npm init -y and npm install are required to ensure the user has the inquirer library.
@@ -31,6 +34,5 @@ Contribution can be requested through contact of the developer.
 Currently, there is no test suite developed for this application.
 
 ## [Questions](#table-of-contents)
-Contact me through GitHub at: [GitHub](https://github.com/jacih)
+Contact me through [GitHub](https://github.com/jacih)
 Contact me through email at: [jacqueline.e.hodgson@gmail.com](mailto:jacqueline.e.hodgson@gmail.com)
-    
