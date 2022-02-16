@@ -190,7 +190,6 @@ function mdContent(data) {
     ${data.usage}
 
     ## [License](#table-of-contents)
-    ${data.license}
     ${renderBadge(data.license)}
     ${renderLinks(data.license)}
 
